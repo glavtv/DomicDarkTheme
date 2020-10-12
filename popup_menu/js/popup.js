@@ -1,7 +1,7 @@
 var EnableTheme = "Enabled",
     EnableCustomIcon = "Enabled",
     CustomIconLink = "[Default]",
-    CustomSiteTitle = "Dark Domic",
+    CustomSiteTitle = "[Default]",
     ColourOfTheme = "Default";
 
 var LoadedUserData = null;
