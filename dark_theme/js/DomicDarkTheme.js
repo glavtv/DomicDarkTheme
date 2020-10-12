@@ -6,7 +6,7 @@ var DarkDomic_Stable = null,
     DarkDomic_UnStable = null,
 	FirstDataLoad = 0,
 	Original_Title = "",
-	Original_Icon_Link = "http://domic.isu.ru/favicon.ico";
+	Original_Icon_Link = "http://domic.isu.ru/favicon.ico";		//eror, get: 500
 
 //Default Vars for local storage
 var EnableTheme = "Enabled",
@@ -112,29 +112,20 @@ function RefreshInjectedData()
 				nj("#SiteIcon").remove();
 			}
 		}
+		
+		//SetTheme
+		//SetTheme(ColourOfTheme);
 	}
 	else
 	{
-		
-		jQuery.ajax({
-			type: "GET",
-			url: Original_Icon_Link,
-			dataType: "image/jpg",
-			success: function (image) {
-				console.log("SEX CESS");
-			},
-			error: function () {
-				console.log("EROR");
-			}
-		});
-		
-		
-		//Delete Site Icon
-		SetIcon(Original_Icon_Link);
-		//nj("#SiteIcon").remove();
+		//Delete Site Icon	
+		SetIcon(browser.runtime.getURL("assets/icons/toolbar_32_light.png"));
 		
 		//Custom Site Title
 		document.title = Original_Title;
+		
+		//Delete Theme
+		//SetTheme("Clear");
 	}
 }
 //
@@ -164,15 +155,36 @@ function SetIcon (LinkToIcon)
 			nj('head').prepend('<link id="SiteIcon" rel="shortcut icon" type="image/png" href="' + LinkToIcon + '" />');
 		}
 	}
-	
-	
-	
+}
+
+function SetTheme (ThemeLink)
+{
+	switch(ThemeLink)
+	{
+			case "Default":
+			{
+				nj('head').append('<style id="DarkDomicStyle">@import url("' + browser.runtime.getURL("dark_theme/css/DarkThemeStyle.css") + '");</style>');
+				break;
+			}
+			case "FullDark":
+			{
+				break;
+			}
+			case "Purple":
+			{
+				break;
+			}
+			case "Clear":
+			{
+				nj("head #DarkDomicStyle").remove();
+				break;
+			}
+	}
 }
 
 nj(document).ready(function() 
 {
-    //DarkDomic_Stable = setTimeout(DarkDomic_Stable);
-    //setTimeout(Run_DarkDomic_UnStable);
+    
 });
 
 function Run_DarkDomic_Stable()
@@ -183,18 +195,4 @@ function Run_DarkDomic_Stable()
         nj('head').append('<style id="DarkDomicStyle">@import url("' + browser.runtime.getURL("dark_theme/css/DarkThemeStyle.css") + '");</style>');
         nj('head').prepend('<link id="SiteIcon" rel="shortcut icon" type="image/png" href="' + browser.runtime.getURL("assets/icons/logo_128.png") +'" />');
     }
-}
-
-function Run_DarkDomic_UnStable()
-{
-    if (document.readyState || document.body.readyState =='complete')
-    {
-        if (nj("#DarkDomicStyle").length < 1) 
-        {
-            document.title = "Dark Domic";
-            nj('head').append('<style id="DarkDomicStyle">@import url("' + browser.runtime.getURL("dark_theme/css/DarkThemeStyle.css") + '");</style>');
-            nj('head').prepend('<link id="SiteIcon" rel="shortcut icon" type="image/png" href="' + browser.runtime.getURL("assets/icons/logo_128.png") +'" />');
-        }
-    }
-	DarkDomic_UnStable = setInterval(DarkDomic_UnStable, 1000);
 }
