@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+
+  "name": "Dark Domic",
+  "version": "0.03",
+  "description": "Dark theme for the site domic.isu.ru",
+	"author": "G L X V/ARTZ",
+  "homepage_url": "https://github.com/glavtv/Domic_Dark_Theme",
+
+  "icons": {
+    "128": "assets/icons/logo_128.png"
+  },
+
+  "permissions": [
+		"tabs",
+		"*://domic.isu.ru/*",
+    "storage"
+	],
+
+  "browser_action": {
+    "default_icon": "assets/icons/toolbar_32_dark.png",
+    "default_title": "Dark Domic Settings",
+    "default_popup": "popup_menu/popup.html"
+  },
+
+  "web_accessible_resources": ["assets/icons/*.png", "dark_theme/css/DarkThemeStyle.css"],
+
+  "background": {
+		"scripts": ["dark_theme/js/BackgroundWorker.js"]
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["*://domic.isu.ru/*"],
+      "js": ["assets/jquery-3.5.1.min.js", "dark_theme/js/DomicDarkTheme.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

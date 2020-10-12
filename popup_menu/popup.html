@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/popup.css"/>
+	<link rel="stylesheet" href="https://code.cdn.mozilla.net/fonts/fira.css">
+	<script src="../assets/jquery-3.5.1.min.js"></script>
+	<script src="js/popup.js"></script>
+  </head>
+
+<body>
+ 
+	<div id="popup-menu-wrapper">
+		<div id="popup-menu-head">
+			<div>
+				<div><img alt="" src="../assets/icons/logo_128.png"/></div>
+				<div>
+					<p><a href="https://vk.com/under.m1nd">Author</a> <br/>v0.03</p>
+				</div>
+			</div>
+			
+			<div class="settings-head-block">
+				<div>
+					<a class="Item-Selected_Text">Settings</a>
+				</div>
+			</div>
+			
+			<div class="settings-head-block">
+				<div>
+					<a>Custom</a>
+				</div>
+			</div>
+		</div>
+		
+		<div id="popup-menu-body">
+			<div class="Body-Settings">
+				<form id="Settings-Form">
+					<input type="checkbox" id="themeEnabled" name="themeEnabled" checked>
+  					<label for="themeEnabled">Enable Theme</label><br>
+					<br/>
+					
+					<input type="checkbox" id="customIcon" name="customIcon" checked>
+  					<label for="customIcon">Custom icon on site</label><br/>
+					<br/>
+					
+					<label for="customIconLink">Link to a new icon for the site:</label><br/>
+  					<input type="text" id="customIconLink" name="customIconLink" value="[Default]">
+					<br/><br/>
+					
+					<label for="customTitle">Custom name for the site:</label><br/>
+  					<input type="text" id="customTitle" name="customTitle" value="Dark Domic">
+					<br/><br/>
+					
+					<label for="style_colour">Colour of Theme:</label><br/>
+
+					<input type="radio" id="Default" name="style_colour" value="Default" checked>
+					<label for="Default">Default (Dark w/Blue)</label><br>
+					
+					<input type="radio" id="FullDark" name="style_colour" value="FullDark">
+					<label for="FullDark">Deep Dark (like Dark VK)</label><br>
+					
+					<input type="radio" id="Purple" name="style_colour" value="Purple">
+					<label for="Purple">Dark w/Purple</label>
+					<br/><br/>
+					
+					<input type="submit" id="SaveAndRefresh" value="Save & Refresh">
+				</form>
+			</div>
+			<div class="Body-Settings" hidden></div>
+		</div>
+	</div>
+	
+</body>
+
+</html>
