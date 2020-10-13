@@ -15,7 +15,6 @@ var EnableTheme = "Enabled",
     CustomSiteTitle = "Dark Domic",
     ColourOfTheme = "Default";
 
-
 //Work with BackgroundWorker
 var myPort = browser.runtime.connect({name:"DarkDomic-Port"});
 
@@ -129,7 +128,6 @@ function RefreshInjectedData()
 	}
 }
 //
-
 
 function SetIcon (LinkToIcon)
 {
