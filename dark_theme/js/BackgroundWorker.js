@@ -1,20 +1,18 @@
-var portFromCS;
-
-var LoadedUserData = JSON.parse(localStorage.getItem('DarkDomicData'));
+var DarkDomic_Port;
 
 window.addEventListener('storage', function(e) { 
-	RefreshUserData();
-	portFromCS.postMessage({greeting: LoadedUserData});
+	DarkDomic_Port.postMessage({greeting: GetNewSettigns()});
 });
 
-function Сonnect(p) {
-	portFromCS = p;
-	portFromCS.postMessage({greeting: LoadedUserData});
+function Сonnect(Port) {
+	DarkDomic_Port = Port;
+	DarkDomic_Port.postMessage({greeting: GetNewSettigns()});
 }
 
-function RefreshUserData()
+function GetNewSettigns()
 {
-	LoadedUserData = JSON.parse(localStorage.getItem('DarkDomicData'));
+	var LoadedUserData = JSON.parse(localStorage.getItem('DarkDomicData'));
+	return LoadedUserData;
 }
 
 browser.runtime.onConnect.addListener(Сonnect);

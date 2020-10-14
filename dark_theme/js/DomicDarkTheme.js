@@ -3,7 +3,6 @@ var nj = $.noConflict(true);
 
 //Vars
 var DarkDomic_Stable = null,
-    DarkDomic_UnStable = null,
 	FirstDataLoad = 0,
 	Original_Title = "",
 	Original_Icon_Link = "http://domic.isu.ru/favicon.ico";		//eror, get: 500
@@ -26,36 +25,28 @@ myPort.onMessage.addListener(function(m)
 		FirstDataLoad = 1;
 		Original_Title = document.title;
 		UpdateVars(NewData);
-		console.log("Data loaded.");
+		if (EnableTheme == "Enabled")
+		{
+			SetTheme("Default");
+			//window.storage.sync.clear("color");
+		}
+		else
+		{
+			//window.storage.sync.clear("color");
+		}
+		console.log("{Dark Domic Extension} - Settings loaded.");
 	}
 	else
 	{
-		var NewData_fromSettings = 0;
-	
-		if ( EnableTheme != NewData.EnableTheme )
-		{
-			NewData_fromSettings++;
-		}
-		if ( EnableCustomIcon != NewData.EnableCustomIcon )
-		{
-			NewData_fromSettings++;
-		}
-		if ( CustomIconLink != NewData.CustomIconLink )
-		{
-			NewData_fromSettings++;
-		}
-		if ( CustomSiteTitle != NewData.CustomSiteTitle )
-		{
-			NewData_fromSettings++;
-		}
-		if ( ColourOfTheme != NewData.ColourOfTheme )
-		{
-			NewData_fromSettings++;
-		}
-		if (NewData_fromSettings > 0)
+		if (EnableTheme != NewData.EnableTheme || EnableCustomIcon != NewData.EnableCustomIcon || CustomIconLink != NewData.CustomIconLink || CustomSiteTitle != NewData.CustomSiteTitle || ColourOfTheme != NewData.ColourOfTheme)
 		{
 			UpdateVars(NewData);
-			RefreshInjectedData();
+			OnThemeOrUpdate();
+			console.log("{Dark Domic Extension} - Settings сhanged.");
+		}
+		else
+		{
+			console.log("{Dark Domic Extension} - Without changes.");
 		}
 	}
 });
@@ -78,53 +69,6 @@ function UpdateVars(NewData)
 		
 		//Selected Colour
 		ColourOfTheme = NewData.ColourOfTheme;
-	}
-}
-
-function RefreshInjectedData()
-{
-	if (EnableTheme == "Enabled")
-	{
-		//Custom Site Title
-		if (CustomSiteTitle == "[None]")
-		{
-			document.title = Original_Title;
-		}
-		else if (CustomSiteTitle == "[Default]")
-		{
-			document.title = "Dark Domic";
-		}
-		else
-		{
-			document.title = CustomSiteTitle;
-		}
-
-		//Custom Icon
-		if (EnableCustomIcon == "Enabled")
-		{
-			SetIcon(CustomIconLink);
-		}
-		else
-		{
-			if (nj("#SiteIcon").length > 0)
-			{
-				nj("#SiteIcon").remove();
-			}
-		}
-		
-		//SetTheme
-		//SetTheme(ColourOfTheme);
-	}
-	else
-	{
-		//Delete Site Icon	
-		SetIcon(browser.runtime.getURL("assets/icons/toolbar_32_light.png"));
-		
-		//Custom Site Title
-		document.title = Original_Title;
-		
-		//Delete Theme
-		//SetTheme("Clear");
 	}
 }
 //
@@ -157,11 +101,14 @@ function SetIcon (LinkToIcon)
 
 function SetTheme (ThemeLink)
 {
+	var path;
+	var set = "false";
 	switch(ThemeLink)
 	{
 			case "Default":
 			{
-				nj('head').append('<style id="DarkDomicStyle">@import url("' + browser.runtime.getURL("dark_theme/css/DarkThemeStyle.css") + '");</style>');
+				path = browser.runtime.getURL("dark_theme/css/DarkThemeStyle.css");
+				set = "true";
 				break;
 			}
 			case "FullDark":
@@ -174,23 +121,96 @@ function SetTheme (ThemeLink)
 			}
 			case "Clear":
 			{
-				nj("head #DarkDomicStyle").remove();
+				window.storage.sync.remove("color"); 
 				break;
 			}
+	}
+	
+	if(set == "true")
+	{
+		window.addEventListener("DOMContentLoaded", function() 
+		{
+			window.storage.sync.get("color", function() 
+			{
+				nj('</link>', {
+					id: 'DarkDomicStyle',
+					rel: 'stylesheet',
+					type: 'text/css',
+					href: ''
+				}).appendTo('head');
+			});
+		}, false);	
 	}
 }
 
 nj(document).ready(function() 
 {
-    
+    Run_DarkDomic_Stable();
 });
 
 function Run_DarkDomic_Stable()
 {
-    if (nj("#DarkDomicStyle").length < 1) 
-    {
-        document.title = "Dark Domic";
-        nj('head').append('<style id="DarkDomicStyle">@import url("' + browser.runtime.getURL("dark_theme/css/DarkThemeStyle.css") + '");</style>');
-        nj('head').prepend('<link id="SiteIcon" rel="shortcut icon" type="image/png" href="' + browser.runtime.getURL("assets/icons/logo_128.png") +'" />');
+    if (EnableTheme == "Enabled")
+	{
+        OnThemeOrUpdate();
+    }
+	else
+	{
+		OffTheme();
+	}
+	setTimeout(Run_DarkDomic_Stable, 750);
+}
+
+function OffTheme()
+{
+	//Set light Site Icon (Original get:500)	
+	SetIcon(browser.runtime.getURL("assets/icons/toolbar_32_light.png"));
+		
+	//Custom Site Title
+	document.title = Original_Title;
+		
+	//Delete Theme
+	//SetTheme("Clear");
+}
+
+function OnThemeOrUpdate()
+{
+	if (EnableTheme == "Enabled")
+	{
+        //Custom Site Title
+		if ((CustomSiteTitle == "[None]" && document.title != Original_Title) || (CustomSiteTitle == "[Default]" && document.title != "Dark Domic") || (CustomSiteTitle != "[None]" && CustomSiteTitle != "[Default]" && document.title != CustomSiteTitle))
+		{
+			if (CustomSiteTitle == "[None]")
+			{
+				document.title = Original_Title;
+			}
+			else if (CustomSiteTitle == "[Default]")
+			{
+				document.title = "Dark Domic";
+			}
+			else
+			{
+				document.title = CustomSiteTitle;
+			}	
+		}
+		
+		
+		//Custom Icon
+		if (EnableCustomIcon == "Enabled")
+		{
+			SetIcon(CustomIconLink);
+		}
+		else
+		{
+			if (nj("#SiteIcon").length > 0)
+			{
+				//Set light Site Icon (Original get:500)	
+				SetIcon(browser.runtime.getURL("assets/icons/toolbar_32_light.png"));
+				nj("#SiteIcon").remove();
+			}
+		}
+		
+		//Set Theme
+		//SetTheme(ColourOfTheme);
     }
 }
