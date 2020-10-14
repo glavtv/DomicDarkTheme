@@ -30,7 +30,7 @@
   	"content_scripts": [
     {
       "matches": ["*://domic.isu.ru/*"],
-	  "css": ["dark_theme/css/DarkThemeStyle.css"],
+	  "css": ["dark_theme/css/Background.css"],
       "js": ["assets/jquery-3.5.1.min.js", "dark_theme/js/DomicDarkTheme.js"],
       "run_at": "document_start"
     }]

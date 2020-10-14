@@ -27,7 +27,7 @@ myPort.onMessage.addListener(function(m)
 		UpdateVars(NewData);
 		if (EnableTheme == "Enabled")
 		{
-			SetTheme("Default");
+			//SetTheme("Default");
 			//window.storage.sync.clear("color");
 		}
 		else
@@ -128,18 +128,15 @@ function SetTheme (ThemeLink)
 	
 	if(set == "true")
 	{
-		window.addEventListener("DOMContentLoaded", function() 
+		window.addEventListener("DOMSubtreeModified", function() 
 		{
-			window.storage.sync.get("color", function() 
-			{
-				nj('</link>', {
+			nj('<link>', {
 					id: 'DarkDomicStyle',
 					rel: 'stylesheet',
 					type: 'text/css',
-					href: ''
-				}).appendTo('head');
+					href: path
+				}).prependTo('head');
 			});
-		}, false);	
 	}
 }
 
