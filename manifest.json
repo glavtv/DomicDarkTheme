@@ -21,7 +21,7 @@
     	"default_popup": "popup_menu/popup.html"
   	},
 
-  	"web_accessible_resources": ["assets/icons/*.png", "dark_theme/css/DarkThemeStyle.css"],
+  	"web_accessible_resources": ["assets/icons/*.png", "dark_theme/css/*.css"],
 
   	"background": {
 		"scripts": ["dark_theme/js/BackgroundWorker.js"]

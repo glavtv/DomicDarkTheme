@@ -25,6 +25,12 @@ myPort.onMessage.addListener(function(m)
 		FirstDataLoad = 1;
 		Original_Title = document.title;
 		UpdateVars(NewData);
+		
+		nj('<link>', {
+			rel: 'stylesheet',
+			href: "https://code.cdn.mozilla.net/fonts/fira.css"
+		}).prependTo('head');
+		
 		if (EnableTheme == "Enabled")
 		{
 			//SetTheme("Default");
@@ -145,6 +151,7 @@ nj(document).ready(function()
     Run_DarkDomic_Stable();
 });
 
+
 function Run_DarkDomic_Stable()
 {
     if (EnableTheme == "Enabled")
@@ -192,6 +199,7 @@ function OnThemeOrUpdate()
 		}
 		
 		
+		/*
 		//Custom Icon
 		if (EnableCustomIcon == "Enabled")
 		{
@@ -206,6 +214,7 @@ function OnThemeOrUpdate()
 				nj("#SiteIcon").remove();
 			}
 		}
+		*/
 		
 		//Set Theme
 		//SetTheme(ColourOfTheme);
