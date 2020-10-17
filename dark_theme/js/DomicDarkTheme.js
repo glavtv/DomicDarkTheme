@@ -4,6 +4,7 @@ var nj = $.noConflict(true);
 //Vars
 var DarkDomic_Stable = null,
 	FirstDataLoad = 0,
+	ActiveTheme = "none",
 	Original_Title = "",
 	Original_Icon_Link = "http://domic.isu.ru/favicon.ico";		//eror, get: 500
 
@@ -24,30 +25,12 @@ myPort.onMessage.addListener(function(m)
 	{
 		FirstDataLoad = 1;
 		Original_Title = document.title;
-		UpdateVars(NewData);
-		
-		nj('<link>', {
-			rel: 'stylesheet',
-			href: "https://code.cdn.mozilla.net/fonts/fira.css"
-		}).prependTo('head');
-		
-		if (EnableTheme == "Enabled")
-		{
-			//SetTheme("Default");
-			//window.storage.sync.clear("color");
-		}
-		else
-		{
-			//window.storage.sync.clear("color");
-		}
 		console.log("{Dark Domic Extension} - Settings loaded.");
 	}
 	else
 	{
 		if (EnableTheme != NewData.EnableTheme || EnableCustomIcon != NewData.EnableCustomIcon || CustomIconLink != NewData.CustomIconLink || CustomSiteTitle != NewData.CustomSiteTitle || ColourOfTheme != NewData.ColourOfTheme)
 		{
-			UpdateVars(NewData);
-			OnThemeOrUpdate();
 			console.log("{Dark Domic Extension} - Settings сhanged.");
 		}
 		else
@@ -55,6 +38,8 @@ myPort.onMessage.addListener(function(m)
 			console.log("{Dark Domic Extension} - Without changes.");
 		}
 	}
+	UpdateVars(NewData);
+	Run_DarkDomic_Stable();
 });
 
 function UpdateVars(NewData)
@@ -81,76 +66,80 @@ function UpdateVars(NewData)
 
 function SetIcon (LinkToIcon)
 {
-	if(LinkToIcon == "[Default]")
+	if (document.readyState || document.body.readyState =='complete')
 	{
-		if (document.readyState || document.body.readyState =='complete')
+		if (nj("#SiteIcon").length > 0)
 		{
-			if (nj("#SiteIcon").length > 0)
-			{
-				nj("#SiteIcon").remove();
-			}
+			nj("#SiteIcon").remove();
+		}
+		if(LinkToIcon == "[Default]")
+		{
 			nj('head').prepend('<link id="SiteIcon" rel="shortcut icon" type="image/png" href="' + browser.runtime.getURL("assets/icons/logo_128.png") +'" />');
+		}
+		else
+		{
+			nj('head').prepend('<link id="SiteIcon" rel="shortcut icon" type="image/png" href="' + LinkToIcon + '" />');
 		}
 	}
 	else
 	{
-		if (document.readyState || document.body.readyState =='complete')
-		{
-			if (nj("#SiteIcon").length > 0)
-			{
-				nj("#SiteIcon").remove();
-			}
-			nj('head').prepend('<link id="SiteIcon" rel="shortcut icon" type="image/png" href="' + LinkToIcon + '" />');
-		}
+		setTimeout(SetIcon, 500, LinkToIcon);
 	}
 }
 
 function SetTheme (ThemeLink)
 {
-	var path;
-	var set = "false";
-	switch(ThemeLink)
+	if (ThemeLink == "Clear" || (ThemeLink != ActiveTheme && ActiveTheme != "none"))
 	{
+		if (ThemeLink == "Clear")
+		{
+			ActiveTheme = "none";
+		}
+		nj("head #DarkDomicStyle").remove();
+	}
+	if (ActiveTheme == "none" || (ThemeLink != ActiveTheme && ActiveTheme != "none"))
+	{
+		var path,
+			set = "false";
+		
+		switch(ThemeLink)
+		{
 			case "Default":
 			{
+				ActiveTheme = "Default";
 				path = browser.runtime.getURL("dark_theme/css/DarkThemeStyle.css");
 				set = "true";
 				break;
 			}
 			case "FullDark":
 			{
+				ActiveTheme = "FullDark";
 				break;
 			}
 			case "Purple":
 			{
+				ActiveTheme = "Purple";
 				break;
 			}
-			case "Clear":
-			{
-				window.storage.sync.remove("color"); 
-				break;
-			}
-	}
-	
-	if(set == "true")
-	{
-		window.addEventListener("DOMSubtreeModified", function() 
+		}
+		
+		if(set == "true")
 		{
 			nj('<link>', {
-					id: 'DarkDomicStyle',
-					rel: 'stylesheet',
-					type: 'text/css',
-					href: path
-				}).prependTo('head');
-			});
+				id: 'DarkDomicStyle',
+				rel: 'stylesheet',
+				type: 'text/css',
+				href: path
+			}).prependTo('head');
+		}
 	}
+	
 }
 
 nj(document).ready(function() 
 {
     Run_DarkDomic_Stable();
 });
-
 
 function Run_DarkDomic_Stable()
 {
@@ -162,7 +151,6 @@ function Run_DarkDomic_Stable()
 	{
 		OffTheme();
 	}
-	setTimeout(Run_DarkDomic_Stable, 2000);
 }
 
 function OffTheme()
@@ -174,7 +162,7 @@ function OffTheme()
 	document.title = Original_Title;
 		
 	//Delete Theme
-	//SetTheme("Clear");
+	SetTheme("Clear");
 }
 
 function OnThemeOrUpdate()
@@ -198,8 +186,6 @@ function OnThemeOrUpdate()
 			}	
 		}
 		
-		
-		/*
 		//Custom Icon
 		if (EnableCustomIcon == "Enabled")
 		{
@@ -207,16 +193,11 @@ function OnThemeOrUpdate()
 		}
 		else
 		{
-			if (nj("#SiteIcon").length > 0)
-			{
-				//Set light Site Icon (Original get:500)	
-				SetIcon(browser.runtime.getURL("assets/icons/toolbar_32_light.png"));
-				nj("#SiteIcon").remove();
-			}
+			//SetIcon(Original_Icon_Link);
+			SetIcon(browser.runtime.getURL("assets/icons/toolbar_32_light.png"));
 		}
-		*/
 		
 		//Set Theme
-		//SetTheme(ColourOfTheme);
+		SetTheme(ColourOfTheme);
     }
 }
