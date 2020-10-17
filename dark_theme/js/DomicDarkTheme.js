@@ -11,7 +11,7 @@ var DarkDomic_Stable = null,
 var EnableTheme = "Enabled",
     EnableCustomIcon = "Enabled",
     CustomIconLink = "[Default]",
-    CustomSiteTitle = "Dark Domic",
+    CustomSiteTitle = "[Default]",
     ColourOfTheme = "Default";
 
 //Work with BackgroundWorker
@@ -162,7 +162,7 @@ function Run_DarkDomic_Stable()
 	{
 		OffTheme();
 	}
-	setTimeout(Run_DarkDomic_Stable, 750);
+	setTimeout(Run_DarkDomic_Stable, 2000);
 }
 
 function OffTheme()
