@@ -116,9 +116,9 @@ function SetTheme (ThemeLink)
 				ActiveTheme = "FullDark";
 				break;
 			}
-			case "Purple":
+			case "CustomStyle":
 			{
-				ActiveTheme = "Purple";
+				ActiveTheme = "CustomStyle";
 				break;
 			}
 		}

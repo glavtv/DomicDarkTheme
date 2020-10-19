@@ -111,10 +111,10 @@ function LoadSavedData()
 				$('input[name="style_colour"][value="FullDark"]').prop('checked', true);
 				break;
 			}
-			case "Purple":
+			case "CustomStyle":
 			{
 				$('input[name="style_colour"]').prop('checked', false);
-				$('input[name="style_colour"][value="Purple"]').prop('checked', true);
+				$('input[name="style_colour"][value="CustomStyle"]').prop('checked', true);
 				break;
 			}
 		}
