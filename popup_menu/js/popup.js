@@ -2,7 +2,8 @@ var EnableTheme = "Enabled",
     EnableCustomIcon = "Enabled",
     CustomIconLink = "[Default]",
     CustomSiteTitle = "[Default]",
-    ColourOfTheme = "Default";
+    ColourOfTheme = "Default",
+	CustomStyleLink = "[None]";
 
 var LoadedUserData = null;
 
@@ -11,12 +12,6 @@ $(document).ready(function()
 	//localStorage.removeItem("DarkDomicData");
 	LoadSavedData();
 	SetIcon(EnableTheme);
-	
-   $('#SaveAndRefresh').on('click', function(e)
-	{
-		e.preventDefault();
-		SaveData();
-	});
 	
 	$('#themeEnabled').on('click', function(e)
 	{
@@ -30,6 +25,12 @@ $(document).ready(function()
 		}
 	});
 	
+	$('#SaveAndRefresh').on('click', function(e)
+	{
+		e.preventDefault();
+		SaveData();
+	});
+	
 });
 
 function SaveData()
@@ -41,7 +42,8 @@ function SaveData()
 		"EnableCustomIcon": EnableCustomIcon,
 		"CustomIconLink": CustomIconLink,
 		"CustomSiteTitle": CustomSiteTitle,
-		"ColourOfTheme": ColourOfTheme
+		"ColourOfTheme": ColourOfTheme,
+		"CustomStyleLink": CustomStyleLink
 	};
 	localStorage.setItem('DarkDomicData', JSON.stringify(UserData));
 }
@@ -53,6 +55,7 @@ function RefreshData()
 	CustomIconLink = $('#customIconLink').val();
 	CustomSiteTitle = $('#customTitle').val();
 	ColourOfTheme = $('input[name=style_colour]:checked', '#Settings-Form').val();
+	CustomStyleLink = $('#CustomStyleLink').val();
 }
 
 function LoadSavedData()
@@ -118,6 +121,9 @@ function LoadSavedData()
 				break;
 			}
 		}
+		//Custom Style
+		$('#CustomStyleLink').val(LoadedUserData.CustomStyleLink);
+		LoadedUserData.CustomStyleLink;
 	}
 	else
 	{

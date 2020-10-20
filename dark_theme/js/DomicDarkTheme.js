@@ -13,7 +13,8 @@ var EnableTheme = "Enabled",
     EnableCustomIcon = "Enabled",
     CustomIconLink = "[Default]",
     CustomSiteTitle = "[Default]",
-    ColourOfTheme = "Default";
+    ColourOfTheme = "Default",
+	CustomStyleLink = "[None]";
 
 //Work with BackgroundWorker
 var myPort = browser.runtime.connect({name:"DarkDomic-Port"});
@@ -60,6 +61,9 @@ function UpdateVars(NewData)
 		
 		//Selected Colour
 		ColourOfTheme = NewData.ColourOfTheme;
+		
+		//Custom Style Link
+		CustomStyleLink = NewData.CustomStyleLink;
 	}
 }
 //
@@ -89,7 +93,7 @@ function SetIcon (LinkToIcon)
 
 function SetTheme (ThemeLink)
 {
-	if (ThemeLink == "Clear" || (ThemeLink != ActiveTheme && ActiveTheme != "none"))
+	if (ThemeLink == "Clear" || (ThemeLink != ActiveTheme && ActiveTheme != "none") || ThemeLink == "CustomStyle")
 	{
 		if (ThemeLink == "Clear")
 		{
@@ -97,7 +101,7 @@ function SetTheme (ThemeLink)
 		}
 		nj("head #DarkDomicStyle").remove();
 	}
-	if (ActiveTheme == "none" || (ThemeLink != ActiveTheme && ActiveTheme != "none"))
+	if (ActiveTheme == "none" || (ThemeLink != ActiveTheme && ActiveTheme != "none") || ThemeLink == "CustomStyle")
 	{
 		var path,
 			set = "false";
@@ -119,6 +123,11 @@ function SetTheme (ThemeLink)
 			case "CustomStyle":
 			{
 				ActiveTheme = "CustomStyle";
+				if (CustomStyleLink != "[None]")
+				{
+					path = CustomStyleLink;
+					set = "true";
+				}
 				break;
 			}
 		}
@@ -138,6 +147,7 @@ function SetTheme (ThemeLink)
 
 nj(document).ready(function() 
 {
+	CssFix();
     Run_DarkDomic_Stable();
 });
 
@@ -200,4 +210,9 @@ function OnThemeOrUpdate()
 		//Set Theme
 		SetTheme(ColourOfTheme);
     }
+}
+
+function CssFix()
+{
+	
 }

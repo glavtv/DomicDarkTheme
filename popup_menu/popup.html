@@ -4,31 +4,24 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/popup.css"/>
-	<link rel="stylesheet" href="https://code.cdn.mozilla.net/fonts/fira.css">
 	<script src="../assets/jquery-3.5.1.min.js"></script>
 	<script src="js/popup.js"></script>
   </head>
 
-<body>
+<body style='overflow-x:hidden;'>
  
 	<div id="popup-menu-wrapper">
 		<div id="popup-menu-head">
 			<div>
 				<div><img alt="" src="../assets/icons/logo_128.png"/></div>
 				<div>
-					<p><a href="https://vk.com/under.m1nd">Author</a> <br/>v1.0</p>
+					<p><a href="https://vk.com/under.m1nd">Author</a> <br/>Ver 1.4</p>
 				</div>
 			</div>
 			
 			<div class="settings-head-block">
 				<div>
-					<a class="Item-Selected_Text">Settings</a>
-				</div>
-			</div>
-			
-			<div class="settings-head-block">
-				<div>
-					<a>Custom</a>
+					<a class="Item-Selected-Text">domic.isu.ru</a>
 				</div>
 			</div>
 		</div>
@@ -49,7 +42,7 @@
 					<br/><br/>
 					
 					<label for="customTitle">Custom name for the site:</label><br/>
-  					<input type="text" id="customTitle" name="customTitle" value="Dark Domic">
+  					<input type="text" id="customTitle" name="customTitle" value="[Default]">
 					<br/><br/>
 					
 					<label for="style_colour">Colour of Theme:</label><br/>
@@ -65,9 +58,16 @@
 					<br/><br/>
 					
 					<input type="submit" id="SaveAndRefresh" value="Save & Refresh">
-				</form>
+					
+					
+					<div>
+						<p>If you want to create your own style, it is better to use "! Import;" on each line of the style. You can see an example of the style <a href="https://vk.cc/aBbEwp">here (GitHub)</a></p>
+					</div>
+					<label for="CustomStyleLink">Link to file style:</label><br/>
+					<input type="text" id="CustomStyleLink" name="CustomStyleLink" value="[None]">
+					</form>
 			</div>
-			<div class="Body-Settings" hidden></div>
+			
 		</div>
 	</div>
 	

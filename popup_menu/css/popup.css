@@ -1,375 +1,311 @@
-*
-{
-	font-size: 14px;
-	font-family: 'Fira Sans';
-    font-weight: 200;
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;300;400;500&display=swap');
+:root {
+  --menu-width: 308px;
 }
-
-body
-{
-	padding: 0;
-	margin: 0;
-	background-color: #3B3B3B;
+* {
+  font-size: 14px;
+  font-family: 'Fira Sans';
+  font-weight: 200;
 }
-
-.settings-head-block .Item-Selected_Text
-{
-	color: #fff;
-	font-weight: 300;
-	border-bottom: 2px solid #0060DF;
-    padding-bottom: 3px; 
-	
-	padding-left: 10%;
-	padding-right: 10%;
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #3B3B3B;
 }
-
+.settings-head-block .Item-Selected-Text {
+  color: #fff;
+  font-weight: 300;
+  border-bottom: 2px solid #0060DF;
+  padding-bottom: 3px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
 /* Меню + верхняя часть (Settings & Custom) */
-#popup-menu-wrapper
-{
-	width: 300px;
-	height: 450px;
-	padding: 0;
-	margin: 0;
+#popup-menu-wrapper {
+  width: var(--menu-width);
+  height: 450px;
+  padding: 0;
+  margin: 0;
 }
-
-#popup-menu-head
-{
-	width: 300px;
-	height: 50px;
-	padding: 0;
-	margin: 0;
-	background-color: #3B3B3B;
-	display: flex;
-	z-index: 50;
-	box-shadow: 0px -5px 20px 0px #000;
+#popup-menu-head {
+  width: var(--menu-width);
+  height: 50px;
+  padding: 0;
+  margin: 0;
+  background-color: #3B3B3B;
+  display: flex;
+  z-index: 50;
+  box-shadow: 0px -5px 20px 0px #000;
 }
-
-#popup-menu-head div:nth-child(1)
-{
-	width: 40%;
-	height: 100%;
-	display: flex;
+#popup-menu-head div:nth-child(1) {
+  width: 40%;
+  height: 100%;
+  display: flex;
 }
-
-#popup-menu-head div:nth-child(1) div:nth-child(1)
-{
-	height: 50px;
-	width: 50px;
-	
-	display: flex;
-	justify-content: center;
+#popup-menu-head div:nth-child(1) div:nth-child(1) {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
 }
-
-#popup-menu-head div:nth-child(1) div:nth-child(2)
-{
-	display: flex;
-	justify-content: center;
-	left: 50px;
+#popup-menu-head div:nth-child(1) div:nth-child(2) {
+  display: flex;
+  justify-content: center;
+  left: 50px;
 }
-
-#popup-menu-head div:nth-child(1) div:nth-child(2) p
-{
-	color: #C3C3C5;
-	margin: auto;
-	
-	font-weight: 200;
-	
-	text-decoration: none;
-	user-select: none;
+#popup-menu-head div:nth-child(1) div:nth-child(2) p {
+  color: #C3C3C5;
+  margin: auto;
+  font-weight: 200;
+  text-decoration: none;
+  user-select: none;
 }
-
-#popup-menu-head div:nth-child(1) div:nth-child(2) p a
-{
-	color: #0060DF;
-	margin: auto;
-	padding-bottom: 0px;
-	
-	font-weight: 400;
-	
-	text-decoration: none;
-	user-select: none;
+#popup-menu-head div:nth-child(1) div:nth-child(2) p a {
+  color: #0060DF;
+  margin: auto;
+  padding-bottom: 0px;
+  font-weight: 400;
+  text-decoration: none;
+  user-select: none;
 }
-
-#popup-menu-head div:nth-child(1) div:nth-child(1) img
-{
-	margin: auto;
-	height: 80%;
+#popup-menu-head div:nth-child(1) div:nth-child(1) img {
+  margin: auto;
+  height: 80%;
 }
-
-#popup-menu-head .settings-head-block
-{
-	width: 30%;
-	height: 100%;
+#popup-menu-head .settings-head-block {
+  width: 60%;
+  height: 100%;
 }
-
-#popup-menu-head .settings-head-block div
-{
-	height: 100%;
-	width: 100%;
-	position: relative;
-	display: flex;
-	justify-content: center;
-	
+#popup-menu-head .settings-head-block div {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
-.settings-head-block div a
-{
-	color: #C3C3C5;
-	cursor: pointer;
-	
-	
-	font-weight: 200;
-	margin: auto;
-	
-	text-decoration: none;
-	user-select: none;
-	
-	
-	border-bottom: 1px solid #C3C3C5;
-    padding-bottom: 0px; 
-	padding-left: 0%;
-	padding-right: 0%;
-	
-	-webkit-transition: .35s ease-in-out;transition: .35s ease-in-out;
+.settings-head-block div a {
+  color: #C3C3C5;
+  cursor: pointer;
+  font-weight: 200;
+  margin: auto;
+  text-decoration: none;
+  user-select: none;
+  border-bottom: 1px solid #C3C3C5;
+  padding-bottom: 0px;
+  padding-left: 0%;
+  padding-right: 0%;
+  -webkit-transition: .35s ease-in-out;
+  transition: .35s ease-in-out;
 }
-.settings-head-block div a:hover
-{
-	padding-left: 10%;
-	padding-right: 10%;
-	
-	-webkit-filter: drop-shadow(0px 0px 1px rgba(188,188,188,0.50));
-    filter:         drop-shadow(0px 0px 1px rgba(188,188,188,0.50));
+.settings-head-block div a:hover {
+  padding-left: 10%;
+  padding-right: 10%;
+  -webkit-filter: drop-shadow(0px 0px 1px rgba(188, 188, 188, 0.50));
+  filter: drop-shadow(0px 0px 1px rgba(188, 188, 188, 0.50));
 }
-
 /*Тело меню*/
-#popup-menu-body .Body-Settings label, #popup-menu-body .Body-Settings input
-{
-	color: #fff;
-	font-weight: 300;
-	font-size: 15px;
+#popup-menu-body .Body-Settings label, #popup-menu-body .Body-Settings input {
+  color: #fff;
+  font-weight: 300;
+  font-size: 15px;
 }
-
 /*Checkbox Style*/
-input[type="checkbox"]:checked, 
-input[type="checkbox"]:not(:checked)
-{
-    position: absolute;
-    left: -9999px;
+input[type="checkbox"]:checked, input[type="checkbox"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
 }
-input[type="checkbox"]:checked + label, 
-input[type="checkbox"]:not(:checked) + label
-{
-    display: inline-block;
-    position: relative;
-    padding-left: 28px;
-    line-height: 20px;
-    cursor: pointer;
+input[type="checkbox"]:checked + label, input[type="checkbox"]:not(:checked) + label {
+  display: inline-block;
+  position: relative;
+  padding-left: 28px;
+  line-height: 20px;
+  cursor: pointer;
 }
-input[type="checkbox"]:checked + label:before, 
-input[type="checkbox"]:not(:checked) + label:before
-{
-	border-radius: 2px;
-    content: "";
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 16px;
-    height: 16px;
-    border: 1px solid #3a3a3a;
-    background-color: #4A4A4A;
+input[type="checkbox"]:checked + label:before, input[type="checkbox"]:not(:checked) + label:before {
+  border-radius: 2px;
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #3a3a3a;
+  background-color: #4A4A4A;
 }
-input[type="checkbox"]:checked + label:before
-{    
-	background-color: #0060DF;
+input[type="checkbox"]:checked + label:before {
+  background-color: #0060DF;
 }
-input[type="checkbox"]:checked + label:after, 
-input[type="checkbox"]:not(:checked) + label:after{
-    content: "";
-    position: absolute;
-    -webkit-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-    transition: all 0.2s ease;
+input[type="checkbox"]:checked + label:after, input[type="checkbox"]:not(:checked) + label:after {
+  content: "";
+  position: absolute;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
-input[type="checkbox"]:checked + label:after, 
+input[type="checkbox"]:checked + label:after, input[type="checkbox"]:not(:checked) + label:after {
+  left: 3px;
+  top: 4px;
+  width: 9px;
+  height: 3px;
+  border-radius: 1px;
+  border-left: 4px solid #fff;
+  border-bottom: 4px solid #fff;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
 input[type="checkbox"]:not(:checked) + label:after {
-    left: 3px;
-    top: 4px;
-    width: 9px;
-    height: 3px;
-    border-radius: 1px;
-    border-left: 4px solid #fff;
-    border-bottom: 4px solid #fff;
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    transform: rotate(-45deg);
+  opacity: 0;
 }
-input[type="checkbox"]:not(:checked) + label:after{
-    opacity: 0;
+input[type="checkbox"]:checked + label:after {
+  opacity: 1;
 }
-input[type="checkbox"]:checked + label:after{
-    opacity: 1;
-}
-
 /*Radio Button Style*/
-input[type="radio"]:checked, 
-input[type="radio"]:not(:checked) 
-{
-    position: absolute;
-    left: -9999px;
+input[type="radio"]:checked, input[type="radio"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
 }
-input[type="radio"]:checked + label, 
-input[type="radio"]:not(:checked) + label {
-	margin-top: 4px;
-    display: inline-block;
-    position: relative;
-    padding-left: 28px;
-    line-height: 20px;
-   	cursor: pointer;
+input[type="radio"]:checked + label, input[type="radio"]:not(:checked) + label {
+  margin-top: 4px;
+  display: inline-block;
+  position: relative;
+  padding-left: 28px;
+  line-height: 20px;
+  cursor: pointer;
 }
-input[type="radio"]:checked + label:before, 
-input[type="radio"]:not(:checked) + label:before {
-    content: "";
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 16px;
-    height: 16px;
-    border: 1px solid #3a3a3a;	
-    background-color: #4a4a4a;;
+input[type="radio"]:checked + label:before, input[type="radio"]:not(:checked) + label:before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #3a3a3a;
+  background-color: #4a4a4a;
+  ;
 }
-input[type="radio"]:checked + label:before
-{
-	background-color: #0060DF;
+input[type="radio"]:checked + label:before {
+  background-color: #0060DF;
 }
-input[type="radio"]:checked + label:before, 
-input[type="radio"]:not(:checked) + label:before {
-    border-radius: 100%;
+input[type="radio"]:checked + label:before, input[type="radio"]:not(:checked) + label:before {
+  border-radius: 100%;
 }
-input[type="radio"]:checked + label:after, 
-input[type="radio"]:not(:checked) + label:after {
-    content: "";
-    position: absolute;
-    -webkit-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-    transition: all 0.2s ease;
+input[type="radio"]:checked + label:after, input[type="radio"]:not(:checked) + label:after {
+  content: "";
+  position: absolute;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
-input[type="radio"]:checked + label:after, 
-input[type="radio"]:not(:checked) + label:after {
-    left: 5px;
-    top: 5px;
-    width: 8px;
-    height: 8px;
-    border-radius: 100%;
-    background-color: #fff;
+input[type="radio"]:checked + label:after, input[type="radio"]:not(:checked) + label:after {
+  left: 5px;
+  top: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background-color: #fff;
 }
 input[type="radio"]:not(:checked) + label:after {
-    opacity: 0;
-} 
+  opacity: 0;
+}
 input[type="radio"]:checked + label:after {
-    opacity: 1;
+  opacity: 1;
 }
-
 /*Input Field Style*/
-#popup-menu-body .Body-Settings input[type="text"]
-{
-	margin-top: 8px;
-	margin-bottom: 6px;
-	width: 245px;
-	height: 20px;
-	border-radius: 2px;
-	padding-left: 8px;
-	padding-right: 8px;
-	color: #737373;
-	font-weight: 400;
-	border: 2px solid rgba(12, 12, 13, 0.2);
-	-webkit-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-    transition: all 0.2s ease;
+#popup-menu-body .Body-Settings input[type="text"] {
+  margin-top: 8px;
+  margin-bottom: 6px;
+  width: 245px;
+  height: 20px;
+  border-radius: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
+  color: #737373;
+  font-weight: 400;
+  border: 2px solid rgba(12, 12, 13, 0.2);
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
-#popup-menu-body .Body-Settings input[type="text"]:focus
-{
-	color: #0c0c0d;
-	border: 2px solid #0a84ff;
-	box-shadow: 0 0 0 1px #0a84ff, 0 0 0 4px rgba(10, 132, 255, 0.3);
+#popup-menu-body .Body-Settings input[type="text"]:focus {
+  color: #0c0c0d;
+  border: 2px solid #0a84ff;
+  box-shadow: 0 0 0 1px #0a84ff, 0 0 0 4px rgba(10, 132, 255, 0.3);
 }
-
-
 /*File Upload Style*/
-#popup-menu-body .Body-Settings input[type="file"]
-{
-	width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
+#popup-menu-body .Body-Settings input[type="file"] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }
 #popup-menu-body .Body-Settings input[type="file"] + label {
-	margin-top: 6px;
-	margin-bottom: 4px;
-	padding: 4px;
-	padding-top: 6px;
-	padding-left: 8px;
-	padding-right: 8px;
-    font-size: 12px;
-    font-weight: 400;
-    color: #737373;
-    background-color: #fff;
-    display: inline-block;
-	cursor: pointer;
+  margin-top: 6px;
+  margin-bottom: 4px;
+  padding: 4px;
+  padding-top: 6px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #737373;
+  background-color: #fff;
+  display: inline-block;
+  cursor: pointer;
 }
-#popup-menu-body .Body-Settings input[type="file"]:focus + label,
-#popup-menu-body .Body-Settings input[type="file"] + label:hover {
-	color: #fff;
-    background-color: #0060DF;
+#popup-menu-body .Body-Settings input[type="file"]:focus + label, #popup-menu-body .Body-Settings input[type="file"] + label:hover {
+  color: #fff;
+  background-color: #0060DF;
 }
-
 /* Buttom submit */
-#popup-menu-body .Body-Settings input[type="submit"]
-{
-	margin-top: 10px;
-	margin-bottom: 4px;
-	padding: 4px;
-	padding-top: 6px;
-	padding-left: 8px;
-	padding-right: 8px;
-    font-size: 12px;
-    font-weight: 400;
-    color: #737373;
-    background-color: #fff;
-    display: inline-block;
-	cursor: pointer;
-	border: 0;
+#popup-menu-body .Body-Settings input[type="submit"] {
+  margin-top: 10px;
+  margin-bottom: 4px;
+  padding: 4px;
+  padding-top: 6px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #737373;
+  background-color: #fff;
+  display: inline-block;
+  cursor: pointer;
+  border: 0;
 }
-#popup-menu-body .Body-Settings input[type="submit"]:hover
-{
-	color: #fff;
-    background-color: #0060DF;
+#popup-menu-body .Body-Settings input[type="submit"]:hover {
+  color: #fff;
+  background-color: #0060DF;
 }
-
-
-
-
-
-
-#popup-menu-body
-{
-	top: 50px;
-	width: 300px;
-	height: 400px;
-	padding: 0;
-	margin: 0;
-	background-color: #2E2D2D;
+#popup-menu-body {
+  top: 50px;
+  width: var(--menu-width);
+  height: 560px;
+  padding: 0;
+  margin: 0;
+  background-color: #2E2D2D;
 }
-
-#popup-menu-body .Body-Settings
-{
-	position: absolute;
-	width: 270px;
-	height: 370px;
-	padding: 15px;
+#popup-menu-body .Body-Settings {
+  position: absolute;
+  width: 270px;
+  height: 370px;
+  padding: 15px;
+}
+.Body-Settings div p {
+  color: #A6A6A6;
+  font-weight: 300;
+  font-size: 15px;
+}
+.Body-Settings div p a {
+  color: #D392FF;
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
 }
