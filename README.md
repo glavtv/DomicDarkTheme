@@ -1,4 +1,4 @@
-# Domic Dark Theme v1.5
+# Domic Dark Theme v1.6
 
 The extension can:
 - Change site name
