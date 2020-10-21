@@ -5,7 +5,7 @@
   	"version": "1.62",
   	"description": "Dark theme for the site domic.isu.ru",
 	"author": "G L X V/ARTZ",
-  	"homepage_url": "https://github.com/glavtv/Domic_Dark_Theme",
+  	"homepage_url": "https://github.com/glavtv/DomicDarkTheme",
 
 	"browser_specific_settings": {
     "gecko": {
