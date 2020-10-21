@@ -33,9 +33,7 @@
   transition: all 0.1s ease;
 }
 /* Any links */
-#authorization a[href], 
-#content a[href="upload/"], 
-#upload-form + p + p a:nth-child(1) {
+#authorization a[href], #content a[href="upload/"], #upload-form + p + p a:nth-child(1) {
   color: var(--dark-theme-active-text-color);
   cursor: pointer;
   font-weight: 200;
@@ -52,8 +50,7 @@
   -o-transition: all 0.1s ease;
   transition: all 0.1s ease;
 }
-#content a[href="upload/"]:hover, 
-#upload-form + p + p a:nth-child(1):hover {
+#content a[href="upload/"]:hover, #upload-form + p + p a:nth-child(1):hover {
   padding-left: 5px;
   padding-right: 5px;
 }
@@ -80,8 +77,7 @@
   margin-bottom: 30px;
 }
 /*Input Field Style*/
-input[type="text"], 
-input[type="password"] {
+input[type="text"], input[type="password"] {
   margin-top: 8px;
   margin-bottom: 6px;
   width: var(--auth-width);
@@ -98,8 +94,7 @@ input[type="password"] {
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
-input[type="text"]:focus, 
-input[type="password"]:focus {
+input[type="text"]:focus, input[type="password"]:focus {
   color: #0c0c0d;
   border: 2px solid #D0D0D0;
   box-shadow: 0 0 0 1px #B3B3B3, 0 0 0 4px rgba(143, 143, 143, 0.3);
@@ -186,8 +181,7 @@ body {
   border: 2px solid var(--dark-theme-border-color);
   background-color: var(--dark-theme-main);
 }
-#content #navbar a, 
-#content #navbar {
+#content #navbar a, #content #navbar {
   color: var(--dark-theme-light-gray);
   cursor: pointer;
   font-weight: 200;
@@ -202,8 +196,7 @@ body {
   -o-transition: all 0.1s ease;
   transition: all 0.1s ease;
 }
-#content #navbar a:hover,
-#content #navbar a.done:nth-last-child(1):hover {
+#content #navbar a:hover, #content #navbar a.done:nth-last-child(1):hover {
   color: var(--dark-theme-active-text-color);
   padding-left: 4px;
   padding-right: 6px;
@@ -223,14 +216,10 @@ body {
   user-select: none;
 }
 #content #study-entity-list table tbody tr td:nth-child(1) {
-	color: var(--dark-theme-gray);
-	font-size: 16px;
+  color: var(--dark-theme-gray);
+  font-size: 16px;
 }
-#content #deadlines ul li a, 
-#content #course-list ol li a:nth-child(1), 
-#content #course-list ol li, 
-#content #module-list table tbody tr td:nth-child(2) a, 
-#content #study-entity-list table tbody tr td:nth-child(2) a {
+#content #deadlines ul li a, #content #course-list ol li a:nth-child(1), #content #course-list ol li, #content #module-list table tbody tr td:nth-child(2) a, #content #study-entity-list table tbody tr td:nth-child(2) a {
   color: var(--dark-theme-white-gray);
   font-weight: 300;
   font-size: 14pt;
@@ -243,10 +232,7 @@ body {
   -o-transition: all 0.1s ease;
   transition: all 0.1s ease;
 }
-#content #deadlines ul li a:hover, 
-#content #course-list ol li a:nth-child(1):hover, 
-#content #module-list table tbody tr td:nth-child(2) a:hover, 
-#content #study-entity-list table tbody tr td:nth-child(2) a:hover {
+#content #deadlines ul li a:hover, #content #course-list ol li a:nth-child(1):hover, #content #module-list table tbody tr td:nth-child(2) a:hover, #content #study-entity-list table tbody tr td:nth-child(2) a:hover {
   color: var(--dark-theme-active-text-color);
   margin-left: 5px;
   padding-left: 10px;
@@ -257,20 +243,13 @@ body {
 #content #module-list table tbody tr td:nth-child(2) a {
   margin-right: 60px;
 }
-#content #module-list table tbody tr td:nth-child(3) span span:nth-child(1) span:nth-child(1), 
-#content #study-entity-list table tbody tr td:nth-child(3) span span:nth-child(1) span:nth-child(1) {
+#content #module-list table tbody tr td:nth-child(3) span span:nth-child(1) span:nth-child(1), #content #study-entity-list table tbody tr td:nth-child(3) span span:nth-child(1) span:nth-child(1) {
   background-color: var(--dark-theme-red);
 }
-#content #module-list table tbody tr td:nth-child(3) span span:nth-child(2) span:nth-child(1), 
-#content #module-list table tbody tr td:nth-child(3) span span:nth-child(2) span:nth-child(2), 
-#content #module-list table tbody tr td:nth-child(3) span span:nth-child(2) span:nth-child(4), 
-#content #study-entity-list table tbody tr td:nth-child(3) span span:nth-child(2) span:nth-child(1), 
-#content #study-entity-list table tbody tr td:nth-child(3) span span:nth-child(2) span:nth-child(2), 
-#content #study-entity-list table tbody tr td:nth-child(3) span span:nth-child(2) span:nth-child(4) {
+#content #module-list table tbody tr td:nth-child(3) span span:nth-child(2) span:nth-child(1), #content #module-list table tbody tr td:nth-child(3) span span:nth-child(2) span:nth-child(2), #content #module-list table tbody tr td:nth-child(3) span span:nth-child(2) span:nth-child(4), #content #study-entity-list table tbody tr td:nth-child(3) span span:nth-child(2) span:nth-child(1), #content #study-entity-list table tbody tr td:nth-child(3) span span:nth-child(2) span:nth-child(2), #content #study-entity-list table tbody tr td:nth-child(3) span span:nth-child(2) span:nth-child(4) {
   background-color: var(--dark-theme-active-text-color);
 }
-#content #module-list table tbody tr td:nth-child(3) span span:nth-child(2) span:nth-child(3), 
-#content #study-entity-list table tbody tr td:nth-child(3) span span:nth-child(2) span:nth-child(3) {
+#content #module-list table tbody tr td:nth-child(3) span span:nth-child(2) span:nth-child(3), #content #study-entity-list table tbody tr td:nth-child(3) span span:nth-child(2) span:nth-child(3) {
   background-color: var(--dark-theme-red);
 }
 #content #course-list ol li a:nth-child(2) {
@@ -291,16 +270,7 @@ body {
   color: var(--dark-theme-active-text-color);
   font-size: 15pt;
 }
-#content #module-description div h2, 
-#content #module-description div p, 
-#content #module-description div ul li, 
-#content #module-description div ul li a, 
-#content #module-description div h3, 
-#content #module-description div ol li,
-#content #module-description div table caption, 
-#content #module-description div table tbody tr th, 
-#content #module-description div table tbody tr td, 
-#content #module-description div h4 {
+#content #module-description div h2, #content #module-description div p, #content #module-description div ul li, #content #module-description div ul li a, #content #module-description div h3, #content #module-description div ol li, #content #module-description div table caption, #content #module-description div table tbody tr th, #content #module-description div table tbody tr td, #content #module-description div h4 {
   font-family: 'Fira Sans', sans-serif;
   color: #191919;
 }
@@ -347,10 +317,7 @@ body #content h2 + h3 + h4 > a[href] {
 #content #navbar + h2 + h3 + h4 + p + div b {
   color: var(--dark-theme-red);
 }
-#content #navbar + h2 + h3 + h4 + p + div + p + div + div p, 
-#content #navbar + h2 + h3 + h4 + p + div + p + div + hr + div, 
-#content #navbar + h2 + h3 + h4 + p + div + p + div + hr + div + div p, 
-#content #navbar + h2 + h3 + h4 + p + div div {
+#content #navbar + h2 + h3 + h4 + p + div + p + div + div p, #content #navbar + h2 + h3 + h4 + p + div + p + div + hr + div, #content #navbar + h2 + h3 + h4 + p + div + p + div + hr + div + div p, #content #navbar + h2 + h3 + h4 + p + div div {
   color: #191919;
   padding: 7px;
 }
@@ -360,8 +327,7 @@ body #content h2 + h3 + h4 > a[href] {
 #content #navbar + h2 + h3 + h4 + p + div + p {
   color: var(--dark-theme-gray);
 }
-#content #navbar + h2 + h3 + h4 + p + div div b, 
-.student-comment {
+#content #navbar + h2 + h3 + h4 + p + div div b, .student-comment {
   color: #191919;
   font-size: 16px;
   font-weight: 400;
@@ -402,8 +368,7 @@ body #content h2 + h3 + h4 > a[href] {
   color: var(--dark-theme-active-text-color);
   background-color: var(--dark-theme-gray);
 }
-#learningLevel tbody tr td span, 
-#learningLevel tbody tr td a {
+#learningLevel tbody tr td span, #learningLevel tbody tr td a {
   font-family: 'Fira Sans', sans-serif;
   font-weight: 200;
   font-size: 12pt;
@@ -443,8 +408,25 @@ body #content h2 + h3 + h4 > a[href] {
   color: var(--dark-theme-score2);
 }
 #content #upload-form #files tbody tr th {
-	font-weight: 100;
+  font-weight: 100;
 }
 #content #course-list ol ::marker {
-	color: var(--dark-theme-light-gray) !important;
+  color: var(--dark-theme-light-gray) !important;
+}
+.instructor-comment {
+  background-color: var(--dark-theme-score2);
+  border-radius: 4px;
+}
+.instructor-comment h4 {
+  margin: 5px;
+  margin-left: 0px;
+  font-size: 14px;
+  font-weight: 300;
+}
+.instructor-comment p {
+  margin: 5px;
+  margin-left: 0px;
+}
+form textarea {
+  border-radius: 4px;
 }

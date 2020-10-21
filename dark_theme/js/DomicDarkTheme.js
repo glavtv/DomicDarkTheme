@@ -16,6 +16,9 @@ var EnableTheme = "Enabled",
     ColourOfTheme = "Default",
 	CustomStyleLink = "[None]";
 
+//Css Fix Vars
+var OpenHomeworkPage = window.location.pathname;
+
 //Work with BackgroundWorker
 var myPort = browser.runtime.connect({name:"DarkDomic-Port"});
 
@@ -214,5 +217,77 @@ function OnThemeOrUpdate()
 
 function CssFix()
 {
+	var student = OpenHomeworkPage.match(/\bstudent\b/i);
+	var entity = OpenHomeworkPage.match(/\bentity\b/i);
+	if (student != null && entity != null && OpenHomeworkPage.length < 24)
+	{
+		Fix_Comment();
+	}
 	
+	var content = OpenHomeworkPage.match(/\bcontent\b/i);
+	var html_page_opened = OpenHomeworkPage.match(/\b.html\b/i);
+	if (content != null && html_page_opened != null)
+	{
+		Fix_HomeWork_Content();
+	}
+}
+
+function Fix_Comment()
+{
+	var Deadline,
+		HWChecked,
+		CommentSection;
+	
+	Deadline = nj( "#content #navbar + h2 + h3 + h4 + p + div" );
+	HWChecked = nj( "#content #studyEntity-requirements + div" );
+	CommentSection = nj( "#content .student-comment + div" );
+	
+	if (HWChecked.length < 1)
+	{
+		HWChecked = nj( "#content .instructor-comment + div" );
+	}
+	if (CommentSection.length < 1)
+	{
+		CommentSection = nj( "#content #studyEntity-requirements + div + hr + h4 + div" );
+		if (CommentSection.length < 1)
+		{
+			CommentSection = nj( "#content #studyEntity-requirements + hr + h4 + div" );
+		}
+	}
+	
+	if ( nj(Deadline).css('background-color') == 'rgb(255, 192, 203)')
+	{
+		nj(Deadline)
+			.css('background-color', '#f72c2c')
+			.css('border-radius','4px')
+			.css('padding','0px')
+			.css('width','300px');
+	}
+	if ( nj(HWChecked).css('background-color') == 'rgb(173, 216, 230)')
+	{
+		nj(HWChecked)
+			.css('background-color', 'var(--dark-theme-score2)')
+			.css('border-radius','4px');
+	}
+	if ( nj(CommentSection).css('background-color') == 'rgb(255, 192, 203)')
+	{
+		nj(CommentSection)
+			.css('background-color', '')
+			.css('padding-top', '20px')
+			.css('padding-left', '10px')
+			.css('border-top', '1px solid var(--dark-theme-gray)')
+			.css('border-bottom', '1px solid var(--dark-theme-gray)')
+			.css('border-radius','5px');
+	}
+	
+	/*
+	console.log(Deadline);
+	console.log(HWChecked);
+	console.log(CommentSection);
+	*/
+}
+
+function Fix_HomeWork_Content()
+{
+	nj("body").eq(0).css("all", "initial")
 }
