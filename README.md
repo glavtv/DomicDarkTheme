@@ -12,5 +12,6 @@ The extension uses:
 
 If you want to get the version of the extension and run it as a temporary share:
 - Clone the repository
+- install web-ext(https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/#Packaging_your_extension)
+- Using "web-ext build" build project / skip web-ext and load local extension by selecting manifest
 - Open tab in Firefox browser - about:debugging#/runtime/this-firefox
-- Load local extension by selecting manifest
