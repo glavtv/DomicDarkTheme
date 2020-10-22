@@ -1,4 +1,5 @@
 # Domic Dark Theme v1.6
+https://addons.mozilla.org/ru/firefox/addon/dark-domic-theme/
 
 Расширение умеет:
 - Менять название вкладки
@@ -9,7 +10,7 @@
 - Шрифт Fira Sans
 - jQuery 3.5.1 (minimal version)
 
-Как установить расширение локально:
+Как временно установить расширение (локально):
 - Клонировать репозиторий
 - Установить web-ext(https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/#Packaging_your_extension)
 - Использовать "web-ext build" для постройки проекта / Не устанавливать web-ext и загрузить расширение через файл manifest
