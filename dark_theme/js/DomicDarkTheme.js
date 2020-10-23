@@ -1,4 +1,4 @@
-//Use Jquery 3.5.1
+///Use Jquery 3.5.1
 var nj = $.noConflict(true);
 
 //Vars
@@ -150,8 +150,8 @@ function SetTheme (ThemeLink)
 
 nj(document).ready(function() 
 {
-	CssFix();
     Run_DarkDomic_Stable();
+	CssFix();
 });
 
 function Run_DarkDomic_Stable()
@@ -226,7 +226,10 @@ function CssFix()
 	
 	var content = OpenHomeworkPage.match(/\bcontent\b/i);
 	var html_page_opened = OpenHomeworkPage.match(/\b.html\b/i);
-	if (content != null && html_page_opened != null)
+	
+	var res = OpenHomeworkPage.match(/\bres\b/i);
+	var sim = OpenHomeworkPage.match(/\bsim\b/i);
+	if (content != null && html_page_opened != null || res != null && sim != null)
 	{
 		Fix_HomeWork_Content();
 	}
@@ -252,6 +255,10 @@ function Fix_Comment()
 		if (CommentSection.length < 1)
 		{
 			CommentSection = nj( "#content #studyEntity-requirements + hr + h4 + div" );
+			if (CommentSection.length < 1)
+			{
+				CommentSection = nj( "#content #studyEntity-requirements + hr + div + div + hr + h4 + div" );
+			}
 		}
 	}
 	
@@ -289,5 +296,7 @@ function Fix_Comment()
 
 function Fix_HomeWork_Content()
 {
-	nj("body").eq(0).css("all", "initial")
+	nj("body").eq(0).css("all", "initial");
+	nj('input[type="text"]').eq(0).css("all", "initial");
+	SetTheme("Clear");
 }

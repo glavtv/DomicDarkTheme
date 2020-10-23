@@ -77,7 +77,8 @@
   margin-bottom: 30px;
 }
 /*Input Field Style*/
-input[type="text"], input[type="password"] {
+#content input[type="text"],#content input[type="password"],
+#authorization input[type="text"],#authorization input[type="password"] {
   margin-top: 8px;
   margin-bottom: 6px;
   width: var(--auth-width);
@@ -94,7 +95,8 @@ input[type="text"], input[type="password"] {
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
-input[type="text"]:focus, input[type="password"]:focus {
+#content input[type="text"]:focus ,#content input[type="password"]:focus,
+#authorization input[type="text"]:focus, #authorization input[type="password"]:focus {
   color: #0c0c0d;
   border: 2px solid #D0D0D0;
   box-shadow: 0 0 0 1px #B3B3B3, 0 0 0 4px rgba(143, 143, 143, 0.3);
