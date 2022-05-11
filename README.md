@@ -1,5 +1,5 @@
 # Domic Dark Theme v1.6 (old)
-Newest version: https://addons.mozilla.org/ru/firefox/addon/domic-theme-changer
+Newest version (V2.3): https://addons.mozilla.org/ru/firefox/addon/domic-theme-changer
 
 Расширение умеет:
 - Менять название вкладки
